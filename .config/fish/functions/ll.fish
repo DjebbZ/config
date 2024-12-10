@@ -1,3 +1,3 @@
 function ll --wraps=ls --wraps=exa --wraps=eza --description 'List files/directories using eza'
-    eza --long --header --icons --git --total-size $argv
+    eza --long --header --icons --git $argv
 end

@@ -22,7 +22,27 @@ source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"
 # GCP credentials
 set -x GOOGLE_APPLICATION_CREDENTIALS "/Users/khalidjebbari/.config/gcloud/legacy_credentials/khalid.jebbari@tcmlabs.fr/adc.json"
 
-# Mise
+### pnpm global store (v10+)
+
+set -x PNPM_HOME "/Users/khalidjebbari/Library/pnpm"
+if not contains -- "$PNPM_HOME" $PATH
+  set -x PATH "$PNPM_HOME" $PATH
+end
+
+### Mise
+
 /opt/homebrew/bin/mise activate fish | source
 
+### evryg
 
+set -x EVRYG ~/projects/evryg
+
+### Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/khalidjebbari/.lmstudio/bin
+
+### uv
+set -x PATH /Users/khalidjebbari/.local/bin $PATH
+
+### Aider (dummy-api-key for LM Studio)
+set -x LM_STUDIO_API_KEY dummy-api-key
+set -x LM_STUDIO_API_BASE http://localhost:1234/v1
